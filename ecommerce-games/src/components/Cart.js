@@ -13,14 +13,14 @@ const Cart = ({data}) => {
   const [visibility, setVisibility] = useState('false');
   return (
     <aside className={(visibility === 'false') ? 'cart-box' : 'cart-box cart-box-open'}>
-      <button className='close-cart' onClick={() => setVisibility('false')}>X</button>
+      <button className='close-cart btn btn-outline-dark btn-sm' onClick={() => setVisibility('false')}>X</button>
         <section onClick={() => setVisibility('true')}>
         <h4 className='cart-title'>
           <span className='cart-icon'></span>
           Carrinho
         </h4>
         <div>
-          <button className='remove-product'>X</button>
+          <button className='remove-product btn btn-outline-dark btn-sm'>X</button>
           Product 1
           <p>Subtotal:</p>
         </div>

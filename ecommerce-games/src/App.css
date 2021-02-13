@@ -36,28 +36,30 @@
   }
 }
 
+.sort-buttons-box {
+  padding: 20px 0;
+}
+
 .product {
-  width: 30%;
-  min-height: 300px;
+  margin: 5px;
+  padding: 10px 20px;
 
-  border: 1px solid black;
-  margin: 20px 1% 0;
-  padding: 20px;
-
-  display: inline-block;
   vertical-align: top;
 }
 
+.product-name {
+  min-height: 47px;
+}
 
 .cart-box {
-  width: 200px;
+  width: 250px;
   height: 100%;
   
-  background-color: lightgray;
+  background-color: #efefef;
   
   position: fixed;
   top: 0;
-  right: -150px;
+  right: -200px;
   padding: 10px;
 }
 

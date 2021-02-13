@@ -33,8 +33,10 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>My Game Store</h1>
+      <header>
+        <nav className="navbar navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">My Game Store</a>
+        </nav>
       </header>
 
       <Items data={data} />
