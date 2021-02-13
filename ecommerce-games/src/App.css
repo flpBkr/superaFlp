@@ -15,12 +15,11 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
@@ -35,4 +34,54 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.product {
+  width: 30%;
+  min-height: 300px;
+
+  border: 1px solid black;
+  margin: 20px 1% 0;
+  padding: 20px;
+
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+.cart-box {
+  width: 200px;
+  height: 100%;
+  
+  background-color: lightgray;
+  
+  position: fixed;
+  top: 0;
+  right: -150px;
+  padding: 10px;
+}
+
+.cart-box.cart-box-open {
+  right: 0;
+}
+
+.close-cart {
+  position: absolute;
+  right: 5px;
+}
+
+.cart-title {
+  text-align: left;
+}
+
+.cart-title .cart-icon {
+  width: 30px;
+  height: 24px;
+  margin-right: 10px;
+  fill: black;
+
+  background-image: url('/src/assets/cart-icon.svg');
+  background-size: cover;
+
+  display: inline-block;
 }
