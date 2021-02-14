@@ -32,8 +32,12 @@ function App() {
     getData()
   }, []);
 
+  const handleOrder = (products) => {
+    return products;
+  }
+
   const { products } = data;
-  console.log("cartItems", cartItems);
+  // console.log("cartItems", cartItems);
   
   const onAdd = (item) => {
     const exist = cartItems.find((x) => x.id === item.id);
@@ -66,8 +70,10 @@ function App() {
       <Header />
       <Items 
         data={data} 
+        setData={setData}
         products={products}
         onAdd={onAdd}
+        handleOrder={handleOrder}
       />
       <Cart 
         visibility={visibility} 

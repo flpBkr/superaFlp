@@ -1,11 +1,45 @@
 import '../App.css';
 import SortButtons from './SortButtons';
+import { useState, useEffect } from 'react';
 
-const Items = ({data, onAdd}) => {
+const Items = ({data, setData, onAdd, handleOrder}) => {
+  // const filterByPrice = data.sort((a, b) => a.price - b.price);
+  // const filterByScore = data.sort((a, b) => b.score - a.score);
+
+  // console.log(filterByScore);
+  const [sortType, setSortType] = useState('default');
+
+  useEffect(() => {
+    const sortArray = type => {
+      const types = {
+        price: 'price',
+        score: 'score',
+        name: 'name'
+      };
+
+      const sortProperty = types[type];
+      const sorted = [...data].sort((a, b) => {
+        if (sortProperty === 'price') {
+          return a[sortProperty] - b[sortProperty];
+        } else {
+          return b[sortProperty] - a[sortProperty];
+        }
+      });
+      setData(sorted);
+    };
+    sortArray(sortType);
+  }, [sortType]); 
+
   return (
     <main>
       <div className='offset-sm-1 col-sm-10 '>
-        <SortButtons />
+        {/* <SortButtons handleOrder={handleOrder} /> */}
+        <select onChange={(e) => setSortType(e.target.value)}> 
+        <option value='default'>Relevância</option>
+        <option value='price'>Preço (Menor)</option>
+        <option value='score'>Avaliação</option>
+        <option value='name'>Nome (A-Z)</option>
+      </select>
       
         <section className='products-box'>
           <div className='row'>
