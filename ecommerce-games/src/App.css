@@ -30,20 +30,27 @@ header h2 {
   position: fixed;
   top: 0;
   right: -200px;
-  padding: 10px;
+  padding: 20px 10px;
 }
 
 .cart-box.cart-box-open {
   right: 0;
+  padding: 20px;
 }
 
 .close-cart {
   position: absolute;
   right: 5px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  font-size: 10px;
 }
 
 .cart-title {
   text-align: left;
+  margin-bottom: 40px;
 }
 
 .cart-title .cart-icon {
@@ -56,4 +63,54 @@ header h2 {
   background-size: cover;
 
   display: inline-block;
+}
+
+.cart-product {
+  text-align: left;
+  margin-bottom: 10px;
+  margin-left: 40px;
+}
+
+.cart-box.cart-box-open .cart-product {
+  margin-left: 0;
+}
+
+.cart-product-img {
+  width: 50px;
+  height: auto;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.cart-product-info {
+  width: 135px;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 5px;
+}
+
+.cart-product-info .cart-product-name {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.cart-product-info .cart-item-qty {
+  font-size: 10px;
+}
+
+.cart-qty-buttons {
+  display: inline-block;
+}
+
+.cart-qty-buttons .cart-add,
+.cart-qty-buttons .cart-remove {
+  display: block;
+  width: 23px;
+  height: 23px;
+  padding: 0;
+  line-height: 20px;
+}
+
+.cart-qty-buttons .cart-add {
+  margin-bottom: 3px;
 }

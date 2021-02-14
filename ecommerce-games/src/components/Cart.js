@@ -1,9 +1,9 @@
 import '../App.css';
 
-const Cart = ({data, visibility, setVisibility, onAdd, cartItems}) => {
+const Cart = ({data, visibility, setVisibility, onAdd, onRemove, cartItems}) => {
   return (
     <aside className={(visibility === 'false') ? 'cart-box' : 'cart-box cart-box-open'}>
-      <button className='close-cart btn btn-outline-dark btn-sm' onClick={() => setVisibility('false')}>X</button>
+      <button className='close-cart btn btn-dark btn-sm' onClick={() => setVisibility('false')}>X</button>
       <div onClick={() => setVisibility('true')}>
         <h4 className='cart-title'>
           <span className='cart-icon'></span>
@@ -15,14 +15,36 @@ const Cart = ({data, visibility, setVisibility, onAdd, cartItems}) => {
         </div>
 
         {cartItems.map((item) => (
-          <div key={item.id}>
-            <div>{item.name}</div>
-            <div>
-              <button onClick={() => onAdd(item)}>+</button>
+          <div key={item.id} className='cart-product'>
+            <img 
+              src={'assets/'+ item.image} 
+              className='cart-product-img img-thumbnail' 
+              alt='Product thumbnail'
+            />
+
+            <div className='cart-product-info'>
+              <div className='cart-product-name'>{item.name}</div>
+              <div className='cart-item-qty'>
+                {item.qty} item(s) x R${item.price.toFixed(2)}
+              </div>
             </div>
-            <div>
-              {item.qty} x R${item.price.toFixed(2)}
+
+            <div className='cart-qty-buttons'>
+              <button 
+                className='cart-add btn btn-outline-success' 
+                onClick={() => onAdd(item)}
+              >
+                +
+              </button>
+              <button 
+                className='cart-remove btn btn-outline-danger' 
+                onClick={() => onRemove(item)}
+              >
+                -
+              </button>
             </div>
+
+
           </div>
         ))}
 

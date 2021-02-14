@@ -48,6 +48,19 @@ function App() {
     }
   };
 
+  const onRemove = (item) => {
+    const exist = cartItems.find((x) => x.id === item.id);
+    if (exist.qty === 1) {
+      setCartItems(cartItems.filter((x) => x.id !== item.id));
+    } else {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === item.id ? { ...exist, qty: exist.qty - 1 } : x
+        )
+      );
+    }
+  };
+
   return (
     <div className="App">
       <Header />
@@ -60,6 +73,7 @@ function App() {
         visibility={visibility} 
         setVisibility={setVisibility}
         onAdd={onAdd}
+        onRemove={onRemove}
         cartItems={cartItems}
       />
       {/* <div>{data[0].name}</div> */}
