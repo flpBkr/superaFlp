@@ -33,7 +33,7 @@ function App() {
   }, []);
 
   const { products } = data;
-  console.log(products);
+  console.log("cartItems", cartItems);
   
   const onAdd = (item) => {
     const exist = cartItems.find((x) => x.id === item.id);
@@ -76,7 +76,7 @@ function App() {
         onRemove={onRemove}
         cartItems={cartItems}
       />
-      {/* <div>{data[0].name}</div> */}
+      {/* <div>{shipping}</div> */}
     </div>
   );
 }

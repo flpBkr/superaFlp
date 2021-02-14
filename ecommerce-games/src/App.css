@@ -13,20 +13,25 @@ header h2 {
 .product {
   margin: 5px;
   padding: 10px 20px;
-
   vertical-align: top;
 }
 
 .product-name {
-  min-height: 47px;
+  min-height: 35px;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.product p {
+  font-size: 12px;
+  margin-bottom: .2rem;
 }
 
 .cart-box {
   width: 250px;
   height: 100%;
-  
   background-color: #efefef;
-  
   position: fixed;
   top: 0;
   right: -200px;
@@ -48,9 +53,14 @@ header h2 {
   font-size: 10px;
 }
 
+.cart-box-click {
+  cursor: pointer;
+}
+
 .cart-title {
   text-align: left;
   margin-bottom: 40px;
+  position: relative;
 }
 
 .cart-title .cart-icon {
@@ -58,12 +68,30 @@ header h2 {
   height: 24px;
   margin-right: 10px;
   fill: black;
-
   background-image: url('/src/assets/cart-icon.svg');
   background-size: cover;
-
   display: inline-block;
 }
+
+.cart-title .cart-number {
+  font-size: 9px;
+  display: inline-block;
+  background-color: #28a745;
+  color: white;
+  border-radius: 50%;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  line-height: 14px;
+  left: 18px;
+  top: -3px;
+}
+
+.cart-title .cart-title-text {
+  display: inline-block;
+  vertical-align: top;
+} 
 
 .cart-product {
   text-align: left;

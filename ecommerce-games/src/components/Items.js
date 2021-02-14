@@ -13,9 +13,9 @@ const Items = ({data, onAdd}) => {
               <div className='col-sm-4 col-lg-3'>
                 <div className='product card'>
                   <img src={'assets/'+ item.image} className='card-img-top' alt='product'/>
-                  <h3 className='product-name'>{item.name}</h3>
-                  <p>Preço: {item.price}</p>
-                  <p>Avaliação: {item.score}</p>
+                  <h4 className='product-name'>{item.name}</h4>
+                  <p>Preço: R$ {item.price}</p>
+                  <p>{item.score} like(s)</p>
                   <div className='count-buttons-box'>
                     <button 
                       className='btn btn-outline-success' 
@@ -23,7 +23,6 @@ const Items = ({data, onAdd}) => {
                     >
                       Adicionar
                     </button>
-                    {/* <i>✔</i> */}
                   </div>
                 </div>
               </div>
