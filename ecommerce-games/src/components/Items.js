@@ -11,10 +11,10 @@ const Items = ({data}) => {
           <div className='row'>
           {
             data && data.length>0 && data.map((item)=>
-              <div className='col-sm-3 product-col'>
+              <div className='col-sm-4 col-lg-3'>
                 <div className='product card'>
                   <img src={'assets/'+ item.image} className='card-img-top' />
-                  <p className='product-name'>{item.name}</p>
+                  <h3 className='product-name'>{item.name}</h3>
                   <p>Preço: {item.price}</p>
                   <p>Avaliação: {item.score}</p>
                   <div className='count-buttons-box'>

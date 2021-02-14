@@ -1,16 +1,6 @@
-import { useState } from 'react';
 import '../App.css';
 
-// className={
-//   (typeof weather.main != "undefined")
-//     ? ((weather.main.temp > 16)
-//       ? "app warm"
-//       : "app")
-//     : "app"
-//   }>
-
-const Cart = ({data}) => {
-  const [visibility, setVisibility] = useState('false');
+const Cart = ({data, visibility, setVisibility}) => {
   return (
     <aside className={(visibility === 'false') ? 'cart-box' : 'cart-box cart-box-open'}>
       <button className='close-cart btn btn-outline-dark btn-sm' onClick={() => setVisibility('false')}>X</button>

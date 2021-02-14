@@ -1,11 +1,16 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+
+import Header from './components/Header';
 import Items from './components/Items';
 import Cart from './components/Cart';
 
+
 function App() {
   const [data, setData] = useState([]);
-
+  const [cartItems, setCartItems] = useState([]);
+  const [visibility, setVisibility] = useState('false');
+  
   const getData = () => {
     fetch('products.json', {
       headers: {
@@ -27,21 +32,11 @@ function App() {
     getData()
   }, []);
 
-  // showCart() {
-  //   alert('Hello!');
-  // }
-
   return (
     <div className="App">
-      <header>
-        <nav className="navbar navbar-dark bg-dark">
-          <a class="navbar-brand" href="#">My Game Store</a>
-        </nav>
-      </header>
-
+      <Header />
       <Items data={data} />
-
-      <Cart />
+      <Cart visibility={visibility} setVisibility={setVisibility}/>
     </div>
   );
 }
