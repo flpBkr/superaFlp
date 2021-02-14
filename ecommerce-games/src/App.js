@@ -32,11 +32,37 @@ function App() {
     getData()
   }, []);
 
+  const { products } = data;
+  console.log(products);
+  
+  const onAdd = (item) => {
+    const exist = cartItems.find((x) => x.id === item.id);
+    if(exist) {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === item.id ? { ...exist, qty: exist.qty + 1} : x
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...item, qty: 1 }])
+    }
+  };
+
   return (
     <div className="App">
       <Header />
-      <Items data={data} />
-      <Cart visibility={visibility} setVisibility={setVisibility}/>
+      <Items 
+        data={data} 
+        products={products}
+        onAdd={onAdd}
+      />
+      <Cart 
+        visibility={visibility} 
+        setVisibility={setVisibility}
+        onAdd={onAdd}
+        cartItems={cartItems}
+      />
+      {/* <div>{data[0].name}</div> */}
     </div>
   );
 }
