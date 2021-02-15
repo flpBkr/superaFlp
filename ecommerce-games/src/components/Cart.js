@@ -1,5 +1,3 @@
-import '../App.css';
-
 const Cart = ({data, visibility, setVisibility, onAdd, onRemove, cartItems}) => {
   const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
   const itemsNum = cartItems.reduce((a, c) => a + c.qty, 0);
@@ -60,20 +58,10 @@ const Cart = ({data, visibility, setVisibility, onAdd, onRemove, cartItems}) => 
         ))}
 
         {cartItems.length !== 0 && (
-          <div>
-            <hr></hr>
-            <div>
-              <div>Subtotal</div>
-              <div>R${itemsPrice.toFixed(2)}</div>
-            </div>
-            <div>
-              <div>Frete</div>
-              <div>R${shippingPrice.toFixed(2)}</div>
-            </div>
-            <div>
-              <div><strong>Total</strong></div>
-              <div><strong>R${totalPrice.toFixed(2)}</strong></div>
-            </div>
+          <div className='cart-payment-box'>
+            <div className='cart-subtotal'>Subtotal: R${itemsPrice.toFixed(2)}</div>
+            <div className='cart-shipping'>Frete: R${shippingPrice.toFixed(2)}</div>
+            <div className='cart-total'><strong>Total: R${totalPrice.toFixed(2)}</strong></div>
           </div>
         )}
       </div>

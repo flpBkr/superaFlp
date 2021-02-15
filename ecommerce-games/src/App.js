@@ -82,7 +82,6 @@ function App() {
         onRemove={onRemove}
         cartItems={cartItems}
       />
-      {/* <div>{shipping}</div> */}
     </div>
   );
 }

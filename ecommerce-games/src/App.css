@@ -6,8 +6,16 @@ header h2 {
   margin-bottom: 0;
 }
 
-.sort-buttons-box {
-  padding: 20px 0;
+.order-select-box {
+  margin: 20px auto 10px;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.order-select-box span {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 5px;
 }
 
 .product {
@@ -41,6 +49,9 @@ header h2 {
 .cart-box.cart-box-open {
   right: 0;
   padding: 20px;
+  box-shadow: -2px 0px 4px 0px rgba(211,211,211,0.5);
+  -webkit-box-shadow: -2px 0px 4px 0px rgba(211,211,211,0.5);
+  -moz-box-shadow: -2px 0px 4px 0px rgba(211,211,211,0.5);
 }
 
 .close-cart {
@@ -141,4 +152,21 @@ header h2 {
 
 .cart-qty-buttons .cart-add {
   margin-bottom: 3px;
+}
+
+.cart-payment-box {
+  margin-left: 40px;
+}
+
+.cart-box.cart-box-open .cart-payment-box {
+  margin-left: 0;
+}
+
+.cart-subtotal, .cart-shipping, .cart-total {
+  text-align: left;
+  font-size: 13px;
+}
+
+.cart-total {
+  font-size: 14px;
 }

@@ -1,17 +1,13 @@
-import '../App.css';
-import SortButtons from './SortButtons';
+import Select from './Select';
 import { useState, useEffect } from 'react';
 
 const Items = ({data, setData, onAdd, handleOrder}) => {
-  // const filterByPrice = data.sort((a, b) => a.price - b.price);
-  // const filterByScore = data.sort((a, b) => b.score - a.score);
-
-  // console.log(filterByScore);
   const [sortType, setSortType] = useState('default');
 
   useEffect(() => {
     const sortArray = type => {
       const types = {
+        default: 'default',
         price: 'price',
         score: 'score',
         name: 'name'
@@ -19,7 +15,10 @@ const Items = ({data, setData, onAdd, handleOrder}) => {
 
       const sortProperty = types[type];
       const sorted = [...data].sort((a, b) => {
-        if (sortProperty === 'price') {
+        if (sortProperty === 'default') {
+          return -1
+        }
+        else if (sortProperty === 'price') {
           return a[sortProperty] - b[sortProperty];
         } else {
           return b[sortProperty] - a[sortProperty];
@@ -33,18 +32,12 @@ const Items = ({data, setData, onAdd, handleOrder}) => {
   return (
     <main>
       <div className='offset-sm-1 col-sm-10 '>
-        {/* <SortButtons handleOrder={handleOrder} /> */}
-        <select onChange={(e) => setSortType(e.target.value)}> 
-        <option value='default'>Relevância</option>
-        <option value='price'>Preço (Menor)</option>
-        <option value='score'>Avaliação</option>
-        <option value='name'>Nome (A-Z)</option>
-      </select>
+        <Select setSortType={setSortType} />
       
         <section className='products-box'>
           <div className='row'>
             {data && data.length>0 && data.map((item) =>
-              <div className='col-sm-4 col-lg-3'>
+              <div className='col-sm-4 col-lg-3' key={item.id}>
                 <div className='product card'>
                   <img src={'assets/'+ item.image} className='card-img-top' alt='product'/>
                   <h4 className='product-name'>{item.name}</h4>
@@ -52,7 +45,7 @@ const Items = ({data, setData, onAdd, handleOrder}) => {
                   <p>{item.score} like(s)</p>
                   <div className='count-buttons-box'>
                     <button 
-                      className='btn btn-outline-success' 
+                      className='btn btn-outline-success btn-sm' 
                       onClick={() => onAdd(item)}
                     >
                       Adicionar
