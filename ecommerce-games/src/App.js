@@ -37,7 +37,6 @@ function App() {
   }
 
   const { products } = data;
-  // console.log("cartItems", cartItems);
   
   const onAdd = (item) => {
     const exist = cartItems.find((x) => x.id === item.id);

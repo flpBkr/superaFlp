@@ -15,14 +15,13 @@ const Items = ({data, setData, onAdd, handleOrder}) => {
 
       const sortProperty = types[type];
       const sorted = [...data].sort((a, b) => {
-        if (sortProperty === 'default') {
-          return -1
-        }
-        else if (sortProperty === 'price') {
-          return a[sortProperty] - b[sortProperty];
-        } else {
-          return b[sortProperty] - a[sortProperty];
-        }
+        return sortProperty === 'price' ? 
+          a[sortProperty] - b[sortProperty] : sortProperty === 'score' ? 
+            b[sortProperty] - a[sortProperty] : sortProperty === 'name' ? 
+              a[sortProperty] < b[sortProperty] ? 
+                -1 : a[sortProperty] > b[sortProperty] ? 
+                1 : 0
+          : 0
       });
       setData(sorted);
     };
